@@ -11,8 +11,8 @@ int main()
         Business_Logic first;
         //first.update_chat();
         //first.get_Answer_by_ID("3");
-        //first.update_questions();
+        first.update_questions();
         //first.update_chat();
-        first.update_answers();
+        //first.update_answers();
         return 0;
 }

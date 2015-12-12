@@ -11,7 +11,7 @@ using namespace std;
 
 void Business_Logic::update_questions(){
     NetworkLayer network;
-    Protocol protocol_questions(network, "questions.dat");
+    Protocol protocol_questions(network, "http://localhost/");
     time_t current_time;
     time_t time_for_last_update;
     while(true) {
@@ -26,7 +26,7 @@ void Business_Logic::update_questions(){
 
 void Business_Logic::update_answers(){
     NetworkLayer network;
-    Protocol protocol_answers(network, "answers.dat");
+    Protocol protocol_answers(network, "http://localhost/");
     time_t current_time;
     time_t time_for_last_update;
     while(true) {
@@ -41,24 +41,24 @@ void Business_Logic::update_answers(){
 
 void Business_Logic::get_all_questions(){
     NetworkLayer network;
-    Protocol protocol_questions(network, "questions.dat");
+    Protocol protocol_questions(network, "http://localhost/");
     boost::copy(protocol_questions.get_list_of_questions() | boost::adaptors::transformed(std::mem_fn(&Question::text)), std::ostream_iterator<std::string>(std::cout, "\n"));
 }
 
 void Business_Logic::get_all_answers(){
     NetworkLayer network;
-    Protocol protocol_answers(network, "answers.dat");
+    Protocol protocol_answers(network, "http://localhost/");
     boost::copy(protocol_answers.get_list_of_answers() | boost::adaptors::transformed(std::mem_fn(&Answer::text)), std::ostream_iterator<std::string>(std::cout, "\n"));
 }
 
 void Business_Logic::get_Answer_by_ID(std::string id){
     NetworkLayer network;
-    Protocol protocol_answers(network, "answers.dat");
+    Protocol protocol_answers(network, "http://localhost/");
     cout << protocol_answers.get_answer_ID(id).text << endl;
 }
 
 void Business_Logic::get_Question_by_ID(std::string id){
     NetworkLayer network;
-    Protocol protocol_questions(network, "questions.dat");
+    Protocol protocol_questions(network, "http://localhost/");
     cout << protocol_questions.get_question_ID(id).text << endl;
 }

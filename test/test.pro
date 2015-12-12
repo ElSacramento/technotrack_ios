@@ -14,7 +14,11 @@ TEMPLATE = app
 SOURCES += main.cpp \
     network.cpp \
     protocol.cpp \
-    business_logic.cpp
+    business_logic.cpp \
+    casablanca.cpp \
+    cas2.cpp \
+    client.cpp \
+    server.cpp
 
 HEADERS += \
     network.h \
